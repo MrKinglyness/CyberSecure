@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CyberSecure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; }
+      header { background: #0b2a4a; color: white; padding: 14px 18px; }
+      main { max-width: 1000px; margin: 20px auto; padding: 0 16px; }
+      .card { background: white; border-radius: 10px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+      .btn { padding: 8px 12px; border-radius: 8px; border: none; background: #0b2a4a; color: white; cursor: pointer; text-decoration: none; }
+      .btn_light { background: #e9eef5; color: #0b2a4a; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { padding: 10px; border-bottom: 1px solid #ddd; }
+      input, select, textarea { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
+      .flash { background: #fff3cd; padding: 10px; border-radius: 6px; margin-bottom: 12px; }
+      .tag { padding: 4px 8px; border-radius: 12px; font-size: 12px; }
+      .safe { background: #d4edda; }
+      .suspicious { background: #fff3cd; }
+      .malicious { background: #f8d7da; }
+      nav a { color: white; margin-right: 12px; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>CyberSecure</strong>
+      <nav>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/scans/new">New Scan</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    </header>
+
+    <main>
+      {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+          <div class="flash">{{ msg }}</div>
+        {% endfor %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
