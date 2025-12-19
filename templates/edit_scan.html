@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Edit Scan</h2>
+  <form method="post">
+    <label>Status</label>
+    <select name="status">
+      <option value="safe" {% if scan.status == "safe" %}selected{% endif %}>Safe</option>
+      <option value="suspicious" {% if scan.status == "suspicious" %}selected{% endif %}>Suspicious</option>
+      <option value="malicious" {% if scan.status == "malicious" %}selected{% endif %}>Malicious</option>
+    </select>
+
+    <label>Findings</label>
+    <textarea name="findings">{{ scan.findings }}</textarea>
+
+    <button class="btn">Save</button>
+  </form>
+</div>
+{% endblock %}
