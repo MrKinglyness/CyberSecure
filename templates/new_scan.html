@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Create New Scan</h2>
+  <form method="post">
+    <label>Scan Type</label>
+    <select name="scan_type">
+      <option value="url">URL</option>
+      <option value="ip">IP</option>
+    </select>
+
+    <label>Target</label>
+    <input name="target_value" required>
+
+    <label>Notes</label>
+    <textarea name="findings"></textarea>
+
+    <button class="btn">Run Scan</button>
+  </form>
+</div>
+{% endblock %}
